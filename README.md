@@ -1,22 +1,23 @@
 ## Customer Churn Prediction App
 
-A simple **machine learning web app** built with **Streamlit** to predict whether a customer is likely to churn based on behavioral and demographic features.
-The app uses a **Random Forest model** trained on structured customer data, with preprocessing (scaling + encoding) applied through a saved `ColumnTransformer`.
+A simple machine learning web app built with Streamlit to predict whether a customer is likely to churn based on behavioral and demographic features.  
+The app uses a Random Forest model trained on structured customer data, with preprocessing (scaling and encoding) applied through a saved `ColumnTransformer`.
 
 ---
 
-###  Features
+### Features
 
-* Interactive **Streamlit web UI** for real-time predictions
-* Pretrained **Random Forest classifier** (`best_random_forest_model.pkl`)
-* Consistent **data preprocessing pipeline** (`preprocessor.pkl`)
-* Ready-to-run local setup with minimal dependencies
+* Interactive Streamlit web UI for real-time predictions  
+* Pretrained Random Forest classifier (`best_random_forest_model.pkl`)  
+* Consistent data preprocessing pipeline (`preprocessor.pkl`)  
+* Ready-to-run local setup with minimal dependencies  
 
 ---
 
-###  Project Structure
+### Project Structure
 
 ```
+
 churn-prediction/
 │
 ├── .venv/                        # Virtual environment (auto-generated)
@@ -25,20 +26,33 @@ churn-prediction/
 ├── preprocessor.pkl              # Preprocessing pipeline (scaler + encoder)
 ├── requirements.txt              # Python dependencies
 └── README.md                     # Project documentation
-```
+
+````
 
 ---
 
-###  Installation and Setup
+### Dataset Description
 
-#### 1️⃣ Clone the repository
+The dataset contains **1,000 customer records** with a mix of demographic, behavioral, and engagement attributes.  
+Key features include:
+
+- **Age, Annual_Income, Total_Spend, Num_of_Purchases, Satisfaction_Score, Last_Purchase_Days_Ago**, etc.  
+- Categorical attributes such as **Gender**, **Email_Opt_In**, and **Promotion_Response**.  
+- Target variable: **Target_Churn** (binary; 1 = churned, 0 = stayed).  
+- The dataset is **balanced** with approximately 52.6% churned and 47.4% retained customers.
+
+---
+
+### Installation and Setup
+
+#### 1. Clone the repository
 
 ```bash
 git clone https://github.com/sadikurSenpai/churn-prediction.git
 cd churn-prediction
-```
+````
 
-#### 2️⃣ Create and activate a virtual environment
+#### 2. Create and activate a virtual environment
 
 **Windows (PowerShell):**
 
@@ -54,7 +68,7 @@ python3 -m venv .venv
 source .venv/bin/activate
 ```
 
-#### 3️⃣ Install dependencies
+#### 3. Install dependencies
 
 ```bash
 pip install -r requirements.txt
@@ -62,7 +76,7 @@ pip install -r requirements.txt
 
 ---
 
-### 🖥️ Run the Streamlit app
+### Run the Streamlit App
 
 After activating your virtual environment:
 
@@ -74,33 +88,33 @@ Streamlit will open a local server (e.g., `http://localhost:8501`) where you can
 
 ---
 
-### 🧾 How It Works
+### How It Works
 
 1. The app takes user input for customer attributes (e.g., Age, Income, Spend, Satisfaction).
 2. Inputs are preprocessed using the saved `preprocessor.pkl`.
-3. The trained Random Forest model (`best_random_forest_model.pkl`) predicts **churn probability**.
-4. The result displays whether the customer is likely to **churn or stay**.
+3. The trained Random Forest model (`best_random_forest_model.pkl`) predicts churn probability.
+4. The result displays whether the customer is likely to churn or stay.
 
 ---
 
-### 📦 Requirements
+### Requirements
 
 Main dependencies (see `requirements.txt`):
 
-* `streamlit`
-* `pandas`
-* `numpy`
-* `scikit-learn`
-* `joblib`
+* streamlit
+* pandas
+* numpy
+* scikit-learn
+* joblib
 
-Optional (if experimenting with training):
+Optional (if experimenting with other models):
 
-* `xgboost`
-* `lightgbm`
+* xgboost
+* lightgbm
 
 ---
 
-### 🧰 Example Command Summary
+### Example Command Summary
 
 ```bash
 git clone https://github.com/sadikurSenpai/churn-prediction.git
@@ -113,10 +127,28 @@ streamlit run app.py
 
 ---
 
-### 📊 Model Info
+### Model Info
 
 * **Model type:** Random Forest Classifier
 * **Best parameters:**
   `{'n_estimators': 500, 'min_samples_split': 2, 'min_samples_leaf': 1, 'max_depth': 50, 'bootstrap': True}`
 * **Preprocessing:** StandardScaler + OneHotEncoder (via ColumnTransformer)
-* **Dataset size:** 1000 samples, balanced target variable
+* **Dataset size:** 1,000 samples, balanced target variable
+
+---
+
+### Key Results
+
+| Metric    | Random Forest |
+| --------- | ------------- |
+| Accuracy  | 0.4867        |
+| Precision | 0.5116        |
+| Recall    | 0.5569        |
+| F1-Score  | 0.5333        |
+| ROC-AUC   | 0.4628        |
+
+Although the overall accuracy is moderate, this implementation demonstrates a complete ML-to-app deployment pipeline with proper preprocessing, model tuning, and interface integration.
+
+---
+
+```
