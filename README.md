@@ -147,8 +147,6 @@ streamlit run app.py
 | F1-Score  | 0.5333        |
 | ROC-AUC   | 0.4628        |
 
-Although the overall accuracy is moderate, this implementation demonstrates a complete ML-to-app deployment pipeline with proper preprocessing, model tuning, and interface integration.
+Although the overall accuracy is moderate because of the lack of data, this implementation demonstrates a complete ML-to-app deployment pipeline with proper preprocessing, model tuning, and interface integration.
 
 ---
-
-```
