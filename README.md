@@ -5,6 +5,11 @@ The app uses a Random Forest model trained on structured customer data, with pre
 
 ---
 
+<img width="919" height="523" alt="image" src="https://github.com/user-attachments/assets/f24852df-c826-4f61-9107-c76a83845570" />
+<img width="920" height="518" alt="image" src="https://github.com/user-attachments/assets/0f8a83da-5f13-4076-827d-2f3b2b5569fd" />
+
+
+
 ### Features
 
 * Interactive Streamlit web UI for real-time predictions  
